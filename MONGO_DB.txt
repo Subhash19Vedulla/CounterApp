@@ -1,0 +1,47 @@
+MONGO_DB:
+
+-> Tables are referred as collections and schema as document in Mongo DB and here users is collection
+
+DB -> To create/use DB -> 
+	use schoolDB 
+	db.createCollection("students") -> this creates the collection in DB
+	db.students.insertOne({ name: "Alice", grade: "A" })
+	show collections -> this lists all the collections
+CREATE -> db.users.createOne({}) - single user, db.users.createMany([{}]) - multiple users
+READ -> db.users.find({}) - to view all documents, db.users.find({key:value}) - to view particular documents
+DELETE -> db.users.deleteOne({key:value}) - single user, db.users.deleteMany([{}]) - multiple users,
+	  db.users.updateOne({unique key:valye},{$unset:{key}}) -> to remove particular fields, can add multiple 	  keys in same line to remove multiple fields	
+	  
+	**db.reservations.remove({ $and : [ {"city" : "London"}, {"starts_at" : "2020-06-18T20:13:58"} ] })
+		
+UPDATE -> db.users.updateOne({unique key:value},{$set:{key:value}}) - multiple users
+
+
+To connect MONGO with DB:
+
+const dbURL = "URL" //url where your db server is hosted
+const dbName = "name" //name of the db which you wanted to connect and use
+const connection = dbURL + dbName
+mongoose.connect(connection).then()  //Mongoose is a library which connects Node JS and Mongo DB
+
+-> We will create Mongoose models inorder to perform CURD actions on the dbs
+-> We can enforce a schema structure using this and also this helps for with validations
+
+Create Mongoose Schema:
+
+const blogSchema = new mongoose.schema({})
+const BlogModel = mongoose.model("DB_Name", blogschema) //DB_Name is a param here and it follows the blog schema
+
+**Sharding is the concept of storing partitions of data (shard) in different database servers.
+
+
+
+{ "reservation_id" : "406453A1D", "city" : "Delhi", "starts_at" : "2019-06-04T20:13:58", "ends_at" : "2019-06-08T20:13:58" }
+
+{ "reservation_id" : "B492A55CE", "city" : "Delhi", "starts_at" : "2019-06-04T20:13:58", "ends_at" : "2019-06-04T20:13:58" }
+
+{ "reservation_id" : "C241F00A7", "city" : "Bangalore", "starts_at" : "2020-09-10T20:13:58", "ends_at" : "2020-06-18T20:13:58" }
+
+{ "reservation_id" : "Z241F00A7", "city" : "Bangalore", "starts_at" : "2020-09-10T20:13:58", "ends_at" : "2020-06-18T20:13:58" }
+
+MONGOOSE - ODM(Object Document Mapper), As the name suggests, ODM’s map an object (in a particular programming language) to a MongoDB document and vice-versa. 

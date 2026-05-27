@@ -1,0 +1,75 @@
+// let VIP = {
+//     name: "Subhash Vedulla",
+//     age: 25,
+//     role: "SDE 1",
+//     emp_ID: 2222911,
+//     address:{
+//         city: 'Hyderabad',
+//         state: 'Telangana'
+//     },
+//     mobileNumber: 6302024153,
+//     printHobbies:function(){
+//         console.log("'Writing','Playing Badminton'")
+//     }
+// }
+
+// // VIP.printHobbies()
+// console.log(VIP.name)
+// console.log(VIP["mobileNumber"])
+
+// (function printName(){
+//     console.log("Subhash")
+// })()
+
+// class user{
+//     constructor(name,age){
+//         this.name = name
+//         this.age = age
+//         this.school = "DPS"
+//     }
+//     markAttendance(){
+//         console.log(this.name,"is present")
+//     }
+// }
+
+// let u1 = new user("Subhash",25)
+// console.log(u1)
+// u1.markAttendance()
+// console.log(Object.keys(u1))
+// console.log(Object.values(u1))
+
+// let x = {}
+// x.city = "Hyderabad"
+// console.log(x.city)
+
+// function student(name,age){
+//     this.name = name
+//     this.age = age
+// }
+
+// let student1 = new student("Subhash", 25)
+// let student2 = new student("Rukmini", 25)
+// console.log(student1.name, student2.name)
+
+function printName(){
+    console.log(this.name)
+}
+
+let student1 = {
+    name: 'Subhash',
+    age: 25,
+    printName
+}
+let student2 = {
+    name: 'Rukmini',
+    age: 25,
+    printName
+}
+let student3 = {
+    name: 'Subhruk',
+    age: 25,
+    printName
+}
+student1.printName()
+student2.printName()
+student3.printName()
