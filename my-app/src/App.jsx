@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 import WelcomeMessage from "./GreetComponent";
 
 function App(){
@@ -10,6 +9,4 @@ function App(){
         </div>
     )
 }
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App/>)
+export default App;
